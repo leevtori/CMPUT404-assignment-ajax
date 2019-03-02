@@ -62,11 +62,23 @@ function drawCircle(context,entity) {
         lineWidth = 3;
         var x = entity["x"];
         var y = entity["y"];
+
+        // Code from: https://www.w3schools.com/tags/canvas_createlineargradient.asp, Accessed March 2nd, 2019
+        var grd = createLinearGradient(0, 0, canvas.width, canvas.height);
+        grd.addColorStop(0, "orange");
+        grd.addColorStop(0.2, "yellow");
+        grd.addColorStop(0.4, "green");
+        grd.addColorStop(0.6, "cyan");
+        grd.addColorStop(0.8, "blue");
+        grd.addColorStop(1, "violet");
+
         //moveTo(x,y);
-        fillStyle = entity["colour"];
-        strokeStyle = fillStyle;
+        // fillStyle = entity["colour"];
+        // strokeStyle = fillStyle;
+
+        strokeStyle = grd;
         arc(x, y, (entity["radius"])?entity["radius"]:50, 0, 2.0 * Math.PI, false);  
-        stroke();                                
+        stroke();   
     }
 }
 
